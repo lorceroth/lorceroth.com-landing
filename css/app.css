@@ -25,6 +25,21 @@
     }
 }
 
+@keyframes expanding-square {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.025, 1.5);
+    }
+}
+
 :root {
     --body-font-family: sans-serif;
     --body-color: #fff;
@@ -79,14 +94,18 @@ body {
     animation: appear 1s forwards;
 }
 
+.links {
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: appear 1s .5s forwards;
+}
+
 .links__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0;
     padding: 0;
-    opacity: 0;
-    animation: appear 1s .5s forwards;
 }
 
 .links__item {
@@ -116,4 +135,46 @@ body {
 
 .links__link:hover:before {
     animation: expanding-circle .35s;
+}
+
+.player {
+    opacity: 0;
+    animation: appear 1s 1s forwards;
+    margin-bottom: 50px;
+}
+
+.player__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-size: 14px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 10px 10px;
+    outline: none;
+    opacity: 0;
+    animation: appear 1s 1.5s forwards;
+}
+
+.player__button:before {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    opacity: 0;
+}
+
+.player__button:hover {
+    cursor: pointer;
+}
+
+.player__button:hover:before {
+    animation: expanding-square .35s;
 }
