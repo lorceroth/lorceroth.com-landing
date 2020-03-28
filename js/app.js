@@ -3,12 +3,14 @@ var $player = document.querySelector('#player');
 var trackIds = [
     '192172283',
     '207012561',
-    '212844856',
     '139057235',
-    '141032345',
+    '660993635',
+    '290258608',
+    '135745432',
 ];
 
-setRandomTrack(0);
+// Lotus 😊
+setTrack('660993635');
 
 function setRandomTrack(attempt) {
     var randomIndex = Math.floor(Math.random() * trackIds.length - 1) + 1;
@@ -20,6 +22,10 @@ function setRandomTrack(attempt) {
     }
 
     lastTrackId = trackId;
+    setTrack(trackId);
+}
+
+function setTrack(trackId) {
     $player.setAttribute('src', getEmbedUrl(trackId));
 }
 
